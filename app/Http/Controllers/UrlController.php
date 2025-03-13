@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use AshAllenDesign\ShortURL\Models\ShortURL;
 use Illuminate\Http\Request;
 use AshAllenDesign\ShortURL\Classes\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class UrlController extends Controller
 {
@@ -13,7 +14,10 @@ class UrlController extends Controller
      */
     public function index()
     {
-        $urls = ShortURL::latest()->paginate(10);
+        $urls = ShortURL::where('created_by', Auth::id())
+            ->latest()
+            ->paginate(10);
+        
         return view('url.index', compact('urls'));
     }
 
