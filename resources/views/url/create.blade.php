@@ -63,7 +63,7 @@
                                         id="original_url"
                                         required
                                         placeholder="https://example.com/your-long-url"
-                                        value="{{ old('original_url') }}"
+                                        value="{{ old('original_url') ?? "https://article.nanybot.com" }}"
                                         class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 pr-3 py-3 sm:text-sm border-gray-300 rounded-md"
                                 />
                             </div>
