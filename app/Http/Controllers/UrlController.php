@@ -6,6 +6,9 @@ use AshAllenDesign\ShortURL\Models\ShortURL;
 use Illuminate\Http\Request;
 use AshAllenDesign\ShortURL\Classes\Builder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class UrlController extends Controller
 {
@@ -17,7 +20,7 @@ class UrlController extends Controller
         $urls = ShortURL::where('created_by', Auth::id())
             ->latest()
             ->paginate(10);
-        
+
         return view('url.index', compact('urls'));
     }
 
@@ -106,4 +109,26 @@ class UrlController extends Controller
     {
         //
     }
+
+    /**
+     * Handle the redirection for a shortened URL key.
+     *
+     * @param  Request  $request
+     * @param  string   $shortURLKey
+     * @return RedirectResponse
+     */
+    public function handleRedirect(Request $request, string $shortURLKey): \Illuminate\Http\RedirectResponse
+    {
+        // Attempt to find the ShortURL model by the key
+        $shortURL = ShortURL::where('url_key', $shortURLKey)->first();
+
+        // If the ShortURL doesn't exist, redirect to the target redirect URL
+        if (! $shortURL) {
+            return Redirect::to(env('TARGET_REDIRECT_URL'));
+        }
+
+        // If the ShortURL exists, redirect to its destination URL
+        return Redirect::to($shortURL->destination_url);
+    }
+
 }

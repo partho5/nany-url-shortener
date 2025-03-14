@@ -113,14 +113,15 @@
                                             <option value="reddit" {{ old('utm_medium') == 'reddit' ? 'selected' : '' }}>Reddit</option>
                                             <option value="pinterest" {{ old('utm_medium') == 'pinterest' ? 'selected' : '' }}>Pinterest</option>
                                             <option value="quora" {{ old('utm_medium') == 'quora' ? 'selected' : '' }}>Quora</option>
-                                            <option value="google" {{ old('utm_medium') == 'google' ? 'selected' : '' }}>Google Ads</option>
+                                            <option value="googleAds" {{ old('utm_medium') == 'google' ? 'selected' : '' }}>Google Ads</option>
+                                            <option value="googleSearch" {{ old('utm_medium') == 'google' ? 'selected' : '' }}>Google Search</option>
+                                            <option value="youtube" {{ old('utm_medium') == 'social' ? 'selected' : '' }}>YouTube</option>
 
-                                            <option value="cpc" {{ old('utm_medium') == 'cpc' ? 'selected' : '' }}>Paid Search (CPC)</option>
-                                            <option value="social" {{ old('utm_medium') == 'social' ? 'selected' : '' }}>Social Media</option>
-                                            <option value="email" {{ old('utm_medium') == 'email' ? 'selected' : '' }}>Email</option>
+                                            <option value="email" {{ old('utm_medium') == 'email' ? 'selected' : '' }}>Email Marketing</option>
                                             <option value="referral" {{ old('utm_medium') == 'referral' ? 'selected' : '' }}>Referral</option>
                                             <option value="display" {{ old('utm_medium') == 'display' ? 'selected' : '' }}>Display Ads</option>
                                             <option value="organic" {{ old('utm_medium') == 'organic' ? 'selected' : '' }}>Organic</option>
+                                            <option value="cpc" {{ old('utm_medium') == 'cpc' ? 'selected' : '' }}>Paid Search (CPC)</option>
                                             <option value="other" {{ old('utm_medium') == 'organic' ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>

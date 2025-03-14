@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UrlController;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -22,5 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('url/view', [UrlController::class, 'index'])->name('url.index');
 });
 
-Route::get('/test', function(){return 'test';});
 
+/* customize redirecting behavior. In case url key not found in database, redirect to target url */
+Route::prefix(Config::get('short-url.prefix'))->group(function () {
+    Route::get('/{shortURLKey}', [UrlController::class, 'handleRedirect']);
+});

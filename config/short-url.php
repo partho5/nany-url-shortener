@@ -63,7 +63,8 @@ return [
     | AshAllenDesign\ShortURL\Controllers\ShortURLController
     |
     */
-    'disable_default_route' => false,
+    'disable_default_route' => true,
+    /* customize redirecting behavior. If url key not found in database, redirect to target url */
 
     /*
     |--------------------------------------------------------------------------
