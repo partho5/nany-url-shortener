@@ -113,6 +113,7 @@
                                             <option value="reddit" {{ old('utm_medium') == 'reddit' ? 'selected' : '' }}>Reddit</option>
                                             <option value="pinterest" {{ old('utm_medium') == 'pinterest' ? 'selected' : '' }}>Pinterest</option>
                                             <option value="quora" {{ old('utm_medium') == 'quora' ? 'selected' : '' }}>Quora</option>
+                                            <option value="medium_dot_com" {{ old('utm_medium') == 'medium_dot_com' ? 'selected' : '' }}>Medium.com</option>
                                             <option value="googleAds" {{ old('utm_medium') == 'google' ? 'selected' : '' }}>Google Ads</option>
                                             <option value="googleSearch" {{ old('utm_medium') == 'google' ? 'selected' : '' }}>Google Search</option>
                                             <option value="youtube" {{ old('utm_medium') == 'social' ? 'selected' : '' }}>YouTube</option>
